@@ -13,4 +13,8 @@ describe "Making Anagrams" do
 
     expect(result).to eq 5
   end
+
+  it "test sample 2" do
+    expect(make_anagram("abc", "debbccc")).to eq 6
+  end
 end

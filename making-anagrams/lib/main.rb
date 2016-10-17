@@ -1,6 +1,6 @@
 def make_anagram(str1, str2)
-  str1_count = frequency_count(str1)
-  str2_count = frequency_count(str2)
+  p str1_count = frequency_count(str1)
+  p str2_count = frequency_count(str2)
 
   deletions = 0
 
