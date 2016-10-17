@@ -1,19 +1,19 @@
-def make_anagram(str1, str2)
-  #get character count
-  char_count = frequency_count(str1)
-
-  #subtract common characters between both
-  str2.each_char do |c|
-    char_count[c] -= 1
+def make_anagram(dictionary, str)
+  #get dictionary frequency count
+  magazine_words = frequency_count(dictionary)
+  #iterate through str and subtract each word
+  str.split.each do |sub|
+    magazine_words[sub] -= 1
+    return "No" if magazine_words[sub] < 0
   end
-  #sum str1 counts and return
-  char_count.inject(0) { |sum, kv| sum + kv[1].abs }
+  #break No if ever goes below 0
+  "Yes"
 end
 
 def frequency_count(str)
   result = Hash.new(0)
-  str.each_char do |char|
-    result[char] += 1
+  str.split.each do |word|
+    result[word] += 1
   end
   result
 end
