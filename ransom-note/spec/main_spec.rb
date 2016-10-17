@@ -4,7 +4,7 @@ require 'byebug'
 describe "Ransom Note" do
   it "does sample input" do
     expect(
-      ransome_notable?(
+      ransom_notable?(
         "give me one grand today night",
         "give one grand today")
     ).to eq "Yes"
