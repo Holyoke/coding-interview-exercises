@@ -1,32 +1,13 @@
 def make_anagram(str1, str2)
-  p str1_count = frequency_count(str1)
-  p str2_count = frequency_count(str2)
+  #get character count
+  char_count = frequency_count(str1)
 
-  deletions = 0
-
-  str1_count.each do |key, value|
-    if str2_count[key] < 1
-      deletions += 1
-    else
-      next
-    end
+  #subtract common characters between both
+  str2.each_char do |c|
+    char_count[c] -= 1
   end
-
-  str2_count.each do |key, value|
-    if str1_count[key] < 1
-      deletions += 1
-    else
-      next
-    end
-  end
-
-  str1_count.each do |key, value|
-    if str2_count[key] > 0 && str1_count[key] > 0
-      deletions += (str2_count[key] - str1_count[key]).abs
-    end
-  end
-
-  p deletions
+  #sum str1 counts and return
+  char_count.inject(0) { |sum, kv| sum + kv[1].abs }
 end
 
 def frequency_count(str)
