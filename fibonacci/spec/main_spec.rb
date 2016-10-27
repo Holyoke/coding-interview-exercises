@@ -10,4 +10,8 @@ describe "Fibonacci" do
     expect(fibonacci 5 ).to eq 5
     expect(fibonacci 6 ).to eq 8
   end
+
+  it "solves big numbers efficiently" do
+    expect(fibonacci 37).to eq 24157817
+  end
 end
