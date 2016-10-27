@@ -1,13 +1,18 @@
 def count_paths(level)
   return 0 if level < 0
+  return 1 if level <= 1
+  return 2 if level == 2
 
   paths = [1,1,2]
 
   (3..level).each do |lvl|
-      paths[lvl] = paths[lvl - 1] + paths[lvl - 2] + paths[lvl - 3]
+      current = paths[0] + paths[1] + paths[2]
+      paths[0] = paths[1]
+      paths[1] = paths[2]
+      paths[2] = current
   end
 
-  paths[level]
+  paths.last
 end
 
 def count_paths_rec(levels)
@@ -32,4 +37,23 @@ def count_paths_memo(levels, memo = Array.new)
   end
 
   memo[levels]
+end
+
+def count_paths_4(level)
+  return 0 if level < 0
+  return 1 if level <= 1
+  return 2 if level == 2
+  return 4 if level == 3
+
+  paths = [1,1,2,4]
+
+  (4..level).each do |lvl|
+      current = paths[0] + paths[1] + paths[2] + paths[3]
+      paths[0] = paths[1]
+      paths[1] = paths[2]
+      paths[2] = paths[3]
+      paths[3] = current
+  end
+
+  paths.last
 end
