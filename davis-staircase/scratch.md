@@ -18,3 +18,8 @@
   7. 2 > 2
 
 1x + 2x + 3x
+
+countPaths(2) = countPaths(1) + countPaths(2) + countPaths(3)
+c(4) = c(3) + c(2) + c(1)
+c(5) = c(4) + c(3) + c(2)
+c(0) = 1

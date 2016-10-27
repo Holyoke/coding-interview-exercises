@@ -1,15 +1,23 @@
-def count_paths(steps)
-  paths = Array.new
-
-  byebug if steps > 1
-
+def count_paths(steps, memo = Array.new)
   if steps < 0
     return 0
   elsif steps == 0
     return 1
-  elsif paths[steps].nil? == false
-    return paths[steps]
+  end
+
+  if memo[steps].nil?
+    memo[steps] = count_paths(steps - 1, memo) + count_paths(steps - 2, memo) + count_paths(steps - 3, memo)
+  end
+
+  memo[steps]
+end
+
+def count_paths_rec(steps)
+  if steps < 0
+    return 0
+  elsif steps == 0
+    return 1
   else
-    return  paths[steps] = count_paths(steps - 1) + count_paths(steps - 2) + count_paths(steps - 3)
+    return count_paths(steps - 1) + count_paths(steps - 2) + count_paths(steps - 3)
   end
 end
