@@ -1,0 +1,3 @@
+def fibonaci(num)
+
+end

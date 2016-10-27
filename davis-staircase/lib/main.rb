@@ -1,4 +1,4 @@
-def count_paths(steps, memo = Array.new)
+def count_paths_memo(steps, memo = Array.new)
   if steps < 0
     return 0
   elsif steps == 0
