@@ -7,4 +7,8 @@ describe "Balanced Brackets" do
     expect(balanced_sequence? '{[(])}').to eq 'NO'
     expect(balanced_sequence? '{{[[(())]]}}').to eq 'YES'
   end
+
+  it "handles edge cases" do
+    expect(balanced_sequence? '}()').to eq 'NO'
+  end
 end
