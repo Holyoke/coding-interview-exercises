@@ -6,7 +6,7 @@ class Queue
 
   def enqueue(datum)
     @stack1.push datum
-    return self
+    return nil
   end
 
   def dequeue
@@ -30,6 +30,12 @@ class Queue
   end
 
   def print
-    string = "{" + @stack1.join(" <- ") + "}"
+    if @stack1.empty?
+      while !@stack2.empty?
+        @stack1.push @stack2.pop
+      end
+    end
+
+    "{" + (@stack2 + @stack1).join(" <- ") + "}"
   end
 end
