@@ -15,4 +15,16 @@ describe "BST Check" do
   it "does sample input" do
     expect(bst_check( nodes[3] )).to eq(true)
   end
+
+  it "does a basic tree" do
+    b_nodes = (0..3).map { |x| Node.new(x) }
+    b_nodes[2].left = b_nodes[1]
+    b_nodes[2].right = b_nodes[3]
+
+    expect(bst_check(b_nodes[2])).to eq true
+  end
+
+  it "fail a single node" do
+    expect(bst_check(Node.new)).to eq true
+  end
 end

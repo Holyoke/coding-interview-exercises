@@ -7,5 +7,6 @@ class Node
 end
 
 def bst_check(root)
-  false
+  return true if root.left.nil? && root.right.nil?
+  return root.left.data < root.data && root.right.data > root.data
 end
