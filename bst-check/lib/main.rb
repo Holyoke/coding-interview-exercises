@@ -5,27 +5,24 @@ class Node
     @data, @left, @right = data, left, right
   end
 
-  def inspect
-    "#{left.print } <- #{data} -> #{right.print}"
+  def print
+    "#{left.data.to_s } <- #{data.to_s} -> #{right.data.to_s}"
   end
 
-  def print
-    "#{left}"
+  def inspect
+    "{#{data}::#{left.inspect}|#{right.inspect}}"
   end
 end
 
-def bst_check(root)
-  check(root, root.left, root.right)
+def bst_check(root, min = 0, max = 10000)
+  return true if root.nil? || root.data.nil?
+  check(root, min, max)
 end
 
 def check(root, min, max)
-  #check if it's basic node.
-  return true if root.nil?
-
-  #check if bst, invalidate if fail
-  if min > root.data || max < root.data
+  if root.data < min || root.data > max
     return false
-  else
-    return bst_check(root.left) && bst_check(root.right)
   end
+
+  bst_check(root.left, min, root.data - 1) && bst_check(root.right, root.data + 1, max)
 end

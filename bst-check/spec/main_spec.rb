@@ -13,7 +13,7 @@ describe "BST Check" do
   }
 
   it "does sample input" do
-    expect(bst_check( nodes[3] )).to eq(true)
+    expect(bst_check( nodes[3] )).to eq(false)
   end
 
   it "does a basic tree" do
